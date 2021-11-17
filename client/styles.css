@@ -1,0 +1,55 @@
+.container {
+  background-color: blueviolet;
+  color: rgb(131, 240, 41);
+  font-weight: bolder;
+  display: flex;
+  flex-direction: row;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  border: 10px solid black;
+  border-block-color: gray;
+  height: 200px;
+  width: '100%';
+  flex: 1;
+}
+.bar {
+  background-color: blueviolet;
+  color: rgb(131, 240, 41);
+  font-weight: bolder;
+  display: flex;
+  flex-direction: row;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  border: 10px solid black;
+  border-block-color: gray;
+  height: 120;
+  width: '100%';
+  flex: auto;
+}
+.inner {
+  border: 1px dotted black;
+  padding-right: 5px;
+  color: rgb(59, 253, 0);
+  width: 25%;
+  display: flex;
+  flex-direction: row;
+  padding-inline: 5px;
+  align-items: stretch;
+}
+.outCome {
+  display: flex;
+}
+.multMod {
+  border: 1px dotted black;
+  padding-right: 5px;
+  color: rgb(131, 240, 41);
+  display: flex;
+  flex-direction: row;
+  padding-inline: 5px;
+  align-items: stretch;
+}
+
+.roll {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+#root {
+  background-color: black;
+}

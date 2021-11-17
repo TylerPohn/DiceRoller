@@ -7,11 +7,11 @@ module.exports = {
     path: path.resolve(__dirname, 'build'),
     filename: 'bundle.js',
   },
-  mode: process.env.NODE_ENV, //, 'production''development'
+  mode: 'development', //'development', process.env.NODE_ENV,
   module: {
     rules: [
       {
-        test: /\.jsx?/,   //.(js|jsx)$
+        test: /\.jsx?/, //.(js|jsx)$
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
@@ -20,15 +20,16 @@ module.exports = {
           },
         },
       },
-      { 
-        test: /\.s[ac]ss$/i, 
-        use: ['style-loader', 'css-loader', 'sass-loader']// MiniCssExtractPlugin better than style-loader,
-      }
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader'], // MiniCssExtractPlugin better than style-loader,
+      },
     ],
   },
-  plugins: [new HtmlWebpackPlugin({template: './index.html'})],// new MiniCssExtractPlugin()
+  plugins: [new HtmlWebpackPlugin({ template: './index.html' })], // new MiniCssExtractPlugin()
   devServer: {
-    static: {     //this static is very new and is required to nest publicPath
+    static: {
+      //this static is very new and is required to nest publicPath
       publicPath: '/build/',
     },
     port: 8080,
