@@ -1,19 +1,24 @@
 import React, { Component } from 'react';
 import Row from './Row';
-import Result from './Result'
+import Result from './Result';
+import Count from './Count';
 class Stack extends Component {
   render() {
-    const sides = ['D4', 'D6', 'D8', 'D10', 'D12', 'D20'];
-    const i = 0;
-    console.log(123, this.props.goblin);
-    console.log(456, this.props.state);
     return (
       <div>
-        <Row goblin={this.props.goblin} state={this.props.state} />
-        <Result goblin={this.props.goblin} state={this.props.state} />
+        <Row
+          increment={this.increment}
+          decrement={this.decrement}
+          updateMult={this.updateMult}
+          updateMod={this.updateMod}
+          state={this.props.state}
+        />
 
-        {/* <Row />
-        <Row /> */}
+        <Result
+          updateOutcome={this.props.updateOutcome}
+          state={this.props.state}
+        />
+        <Count state={this.props.state} />
       </div>
     );
   }

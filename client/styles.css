@@ -10,8 +10,9 @@
   height: 200px;
   width: '100%';
   flex: 1;
+  justify-content: space-around;
 }
-.bar {
+.flex-container {
   background-color: blueviolet;
   color: rgb(131, 240, 41);
   font-weight: bolder;
@@ -20,9 +21,19 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   border: 10px solid black;
   border-block-color: gray;
+
   height: 120;
   width: '100%';
-  flex: auto;
+}
+.dice {
+  border: 1px dotted black;
+  padding-right: 5px;
+  color: rgb(59, 253, 0);
+  width: 10%;
+  display: flex;
+  flex-direction: row;
+  padding-inline: 5px;
+  align-items: stretch;
 }
 .inner {
   border: 1px dotted black;
@@ -35,7 +46,7 @@
   align-items: stretch;
 }
 .outCome {
-  display: flex;
+  padding-right: 0%;
 }
 .multMod {
   border: 1px dotted black;
@@ -46,10 +57,22 @@
   padding-inline: 5px;
   align-items: stretch;
 }
-
+.spacer {
+  width: 25%;
+}
+.button {
+  height: 75%;
+  margin-top: 10px;
+  border-radius: 15%;
+  width: 20%;
+  background-color: rgb(131, 240, 41);
+}
 .roll {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 #root {
   background-color: black;
+}
+.counter {
+  color: white;
 }

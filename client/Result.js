@@ -10,28 +10,37 @@ class Result extends Component {
   render() {
     // put render logic here
     let alpha;
+    const { outcome, multiplier, modifier } = this.props.state;
+    console.log(outcome);
 
     return (
       <div
-        class='bar'
+        class='flex-container'
         goblin={this.props.goblin}
         state={this.props.state}
         // style={styles.container}
       >
+        <div class='spacer'></div>
+
         <button
           class='button'
+          // onClick={this.handleClick}
           onClick={(e) => {
-            e.target.value;
-            alpha = rollN(1, 20);
-
-            console.log(alpha);
+            // e.target.value;
+            alpha = rollN(multiplier, 20) + modifier;
+            this.props.updateOutcome(alpha);
+            console.log('alpha:', alpha);
+            console.log('state.outcome:', outcome);
+            // document.querySelector('.outCome').appendChild(1);
           }}
         >
           <h2 class='roll'>ROLL</h2>
-          <h2 class='outCome' alpha={alpha}>
-            Outcome: alpha
-          </h2>
         </button>
+        <div class='spacer'></div>
+        <h2 class='outCome' alpha={alpha}>
+          Outcome: {outcome}
+        </h2>
+        <div>{alpha}</div>
       </div>
     );
   }
