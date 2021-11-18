@@ -29,34 +29,34 @@ class Row extends Component {
             <div> {multiplier}</div>
             <button
               state={this.props.state}
-              onClick={() => this.props.incrementMult()}
+              onClick={() => this.props.decrementMult()}
             >
-              +
+              <h2>-</h2>
             </button>
             <button
               state={this.props.state}
-              onClick={() => this.props.decrementMult()}
+              onClick={() => this.props.incrementMult()}
             >
-              -
+              <h2>+</h2>
             </button>
           </div>
         </h2>
-        
+
         <h2 class='inner' state={this.props.state}>
           <div class='multMod' state={this.props.state}>
             Modifier (+):
             <div> {modifier}</div>
             <button
               state={this.props.state}
-              onClick={() => this.props.incrementMod()}
+              onClick={() => this.props.decrementMod()}
             >
-              +
+              <h2>-</h2>
             </button>
             <button
               state={this.props.state}
-              onClick={() => this.props.decrementMod()}
+              onClick={() => this.props.incrementMod()}
             >
-              -
+              <h2>+</h2>
             </button>
           </div>
         </h2>

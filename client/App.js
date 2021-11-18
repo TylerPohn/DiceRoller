@@ -9,9 +9,9 @@ class App extends Component {
     this.state = {
       multiplier: 2,
       modifier: 0,
-      counter: 12,
       outcome: 0,
     };
+
     this.updateOutcome = this.updateOutcome.bind(this);
     this.incrementMult = this.incrementMult.bind(this);
     this.decrementMult = this.decrementMult.bind(this);
