@@ -3,14 +3,32 @@ import { render } from 'react-dom';
 import App from './App';
 import rollN from './rollN';
 import './styles.css';
-// import Count from './Count';
-
+//import the image
 class Row extends Component {
   //anytime you pass something down, its CALLED PROPS
 
   render() {
     // put render logic here
-    const { multiplier, modifier, outcome } = this.props.state;
+    // REFACTORING NEEDED BELOW
+    //create a label for row1 property on state
+    if (this.props.name == 'row1') {
+      this.row = this.props.state.row1;
+    } else if (this.props.name == 'row2') {
+      this.row = this.props.state.row2;
+    } else if (this.props.name == 'row3') {
+      this.row = this.props.state.row3;
+    } else if (this.props.name == 'row4') {
+      this.row = this.props.state.row4;
+    } else if (this.props.name == 'row5') {
+      this.row = this.props.state.row5;
+    } else if (this.props.name == 'row6') {
+      this.row = this.props.state.row6;
+    } else {
+      console.log('Houston, we have a problem');
+    }
+    console.log('the current row is: ', this.row);
+    const row1 = this.props.state.row1;
+    const { outcome } = this.props.state;
 
     return (
       <div
@@ -19,23 +37,36 @@ class Row extends Component {
         // style={styles.container}
       >
         <h2 class='dice' state={this.props.state}>
-          {'D20'}
+          {this.row.dice}
           {/* <img src={require('./d20.jpeg')}></img> */}
         </h2>
 
         <h2 class='inner' state={this.props.state}>
           <div class='multMod' state={this.props.state}>
             Multiplier (*):
-            <div> {multiplier}</div>
+            <div> {this.row.multiplier}</div>
             <button
               state={this.props.state}
-              onClick={() => this.props.decrementMult()}
+              onClick={() =>
+                this.props.decrementMult(
+                  this.row.multiplier,
+                  this.props.name,
+                  this.row
+                )
+              }
             >
               <h2>-</h2>
             </button>
+            {/* REFACTORING NEEDED BELOW - maybe incrementMult should take an arg row1 */}
             <button
               state={this.props.state}
-              onClick={() => this.props.incrementMult()}
+              onClick={() =>
+                this.props.incrementMult(
+                  this.row.multiplier,
+                  this.props.name,
+                  this.row
+                )
+              }
             >
               <h2>+</h2>
             </button>
@@ -45,16 +76,28 @@ class Row extends Component {
         <h2 class='inner' state={this.props.state}>
           <div class='multMod' state={this.props.state}>
             Modifier (+):
-            <div> {modifier}</div>
+            <div> {this.row.modifier}</div>
             <button
               state={this.props.state}
-              onClick={() => this.props.decrementMod()}
+              onClick={() =>
+                this.props.decrementMod(
+                  this.row.modifier,
+                  this.props.name,
+                  this.row
+                )
+              }
             >
               <h2>-</h2>
             </button>
             <button
               state={this.props.state}
-              onClick={() => this.props.incrementMod()}
+              onClick={() =>
+                this.props.incrementMod(
+                  this.row.modifier,
+                  this.props.name,
+                  this.row
+                )
+              }
             >
               <h2>+</h2>
             </button>

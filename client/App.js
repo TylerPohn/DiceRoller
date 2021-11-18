@@ -7,9 +7,48 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      //Need to get rid of multiplier and modifier below in favor of row1 and row2
+      //having their own mult and mods
+
       multiplier: 2,
       modifier: 0,
       outcome: 0,
+      row1: {
+        multiplier: 0,
+        modifier: 0,
+        dice: 'D4',
+        sides: 4,
+      },
+      row2: {
+        multiplier: 0,
+        modifier: 0,
+        dice: 'D6',
+        sides: 6,
+      },
+      row3: {
+        multiplier: 0,
+        modifier: 0,
+        dice: 'D8',
+        sides: 8,
+      },
+      row4: {
+        multiplier: 0,
+        modifier: 0,
+        dice: 'D10',
+        sides: 10,
+      },
+      row5: {
+        multiplier: 0,
+        modifier: 0,
+        dice: 'D12',
+        sides: 12,
+      },
+      row6: {
+        multiplier: 0,
+        modifier: 0,
+        dice: 'D20',
+        sides: 20,
+      },
     };
 
     this.updateOutcome = this.updateOutcome.bind(this);
@@ -19,26 +58,42 @@ class App extends Component {
     this.decrementMod = this.decrementMod.bind(this);
     this.updateMult = this.updateMult.bind(this);
     this.updateMod = this.updateMod.bind(this);
-    // this.updateState = this.updateState.bind(this);
+
+    this.updateRowMult = this.updateRowMult.bind(this);
   }
-  incrementMult = () => {
-    console.log('abc', this.state.multiplier);
-    this.updateMult(++this.state.multiplier);
+  //INCREMENT / DECREMENT METHODS
+  incrementMult = (mult, name, currentState) => {
+    this.updateRowMult(++mult, name, currentState);
   };
-  decrementMult = () => {
-    console.log('abc', this.state.multiplier);
-    this.updateMult(--this.state.multiplier);
+  //write new incrementMult like above
+  decrementMult = (mult, name, currentState) => {
+    this.updateRowMult(--mult, name, currentState);
   };
-  incrementMod = () => {
-    console.log('abc', this.state.modifier);
-    this.updateMod(++this.state.modifier);
+  incrementMod = (mod, name, currentState) => {
+    this.updateRowMod(++mod, name, currentState);
   };
-  decrementMod = () => {
-    console.log('abc', this.state.modifier);
-    this.updateMod(--this.state.modifier);
+  decrementMod = (mod, name, currentState) => {
+    this.updateRowMod(--mod, name, currentState);
   };
-  // increment = () => this.setState({ multiplier: this.state.multiplier + 1 });
-  // decrementMult = () => this.setState({ counter: this.state.counter - 1 });
+
+  //UPDATER METHODS
+
+  updateRowMult = (multiplier, name, currentStateRow) => {
+    const newState = { ...currentStateRow };
+    const setStateObj = {};
+    newState.multiplier = multiplier;
+    setStateObj[name] = newState;
+    //{row1: {multiplier: 0, modifier: 0}}
+    this.setState(setStateObj);
+  };
+  updateRowMod = (modifier, name, currentStateRow) => {
+    const newState = { ...currentStateRow };
+    const setStateObj = {};
+    newState.modifier = modifier;
+    setStateObj[name] = newState;
+    //{row1: {multiplier: 0, modifier: 0}}
+    this.setState(setStateObj);
+  };
   updateOutcome = (num) => {
     this.setState({ outcome: num });
   };
@@ -48,23 +103,14 @@ class App extends Component {
   updateMod = (num) => {
     this.setState({ modifier: num });
   };
-  // updateState() {
-  //   this.state = setState();
-  // }
-  //need a func to replace what we want setState to look like
-  //get components set up and come back to state
-  //easier with more to visualize and where state will change
-  //what components will be able to pass information
+
   componentDidMount() {
-    console.log('Componenet Did Mount');
+    console.log('App Did Mount');
   }
 
   render() {
-    //in order to make goblin a prop that's availbale to stack...
-    //when i render this instance of stack, i must pass prop down
     return (
       <div>
-        {/* //to create a stack instance that has access to goblin, and also has the label goblin */}
         <Stack
           updateOutcome={this.updateOutcome}
           incrementMult={this.incrementMult}
@@ -84,3 +130,10 @@ class App extends Component {
 }
 
 export default App;
+// updateState() {
+//   this.state = setState();
+// }
+//need a func to replace what we want setState to look like
+//get components set up and come back to state
+//easier with more to visualize and where state will change
+//what components will be able to pass information
