@@ -7,10 +7,12 @@ class Stack extends Component {
     return (
       <div>
         <Row
-          increment={this.increment}
-          decrement={this.decrement}
-          updateMult={this.updateMult}
-          updateMod={this.updateMod}
+          incrementMult={this.props.incrementMult}
+          decrementMult={this.props.decrementMult}
+          incrementMod={this.props.incrementMod}
+          decrementMod={this.props.decrementMod}
+          updateMult={this.props.updateMult}
+          updateMod={this.props.updateMod}
           state={this.props.state}
         />
 
@@ -18,7 +20,7 @@ class Stack extends Component {
           updateOutcome={this.props.updateOutcome}
           state={this.props.state}
         />
-        <Count state={this.props.state} />
+        {/* <Count state={this.props.state} /> */}
       </div>
     );
   }

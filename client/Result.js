@@ -9,7 +9,8 @@ class Result extends Component {
 
   render() {
     // put render logic here
-    let alpha;
+    let alpha = 0;
+    let beta = 0;
     const { outcome, multiplier, modifier } = this.props.state;
     console.log(outcome);
 
@@ -27,7 +28,12 @@ class Result extends Component {
           // onClick={this.handleClick}
           onClick={(e) => {
             // e.target.value;
-            alpha = rollN(multiplier, 20) + modifier;
+            for (let i = 0; i < multiplier; i++) {
+              beta += rollN(20);
+            }
+
+            alpha = beta + modifier;
+
             this.props.updateOutcome(alpha);
             console.log('alpha:', alpha);
             console.log('state.outcome:', outcome);
@@ -40,7 +46,6 @@ class Result extends Component {
         <h2 class='outCome' alpha={alpha}>
           Outcome: {outcome}
         </h2>
-        <div>{alpha}</div>
       </div>
     );
   }

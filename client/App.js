@@ -8,20 +8,37 @@ class App extends Component {
     super(props);
     this.state = {
       multiplier: 2,
-      modifier: 100,
+      modifier: 0,
       counter: 12,
       outcome: 0,
     };
     this.updateOutcome = this.updateOutcome.bind(this);
-    this.increment = this.increment.bind(this);
-    this.decrement = this.decrement.bind(this);
+    this.incrementMult = this.incrementMult.bind(this);
+    this.decrementMult = this.decrementMult.bind(this);
+    this.incrementMod = this.incrementMod.bind(this);
+    this.decrementMod = this.decrementMod.bind(this);
     this.updateMult = this.updateMult.bind(this);
     this.updateMod = this.updateMod.bind(this);
     // this.updateState = this.updateState.bind(this);
   }
-  increment = () => updateMult(this.state.multiplier + 1);
-  // increment = () => this.setState({ counter: this.state.counter + 1 });
-  decrement = () => this.setState({ counter: this.state.counter - 1 });
+  incrementMult = () => {
+    console.log('abc', this.state.multiplier);
+    this.updateMult(++this.state.multiplier);
+  };
+  decrementMult = () => {
+    console.log('abc', this.state.multiplier);
+    this.updateMult(--this.state.multiplier);
+  };
+  incrementMod = () => {
+    console.log('abc', this.state.modifier);
+    this.updateMod(++this.state.modifier);
+  };
+  decrementMod = () => {
+    console.log('abc', this.state.modifier);
+    this.updateMod(--this.state.modifier);
+  };
+  // increment = () => this.setState({ multiplier: this.state.multiplier + 1 });
+  // decrementMult = () => this.setState({ counter: this.state.counter - 1 });
   updateOutcome = (num) => {
     this.setState({ outcome: num });
   };
@@ -50,8 +67,10 @@ class App extends Component {
         {/* //to create a stack instance that has access to goblin, and also has the label goblin */}
         <Stack
           updateOutcome={this.updateOutcome}
-          increment={this.increment}
-          decrement={this.decrement}
+          incrementMult={this.incrementMult}
+          decrementMult={this.decrementMult}
+          incrementMod={this.incrementMod}
+          decrementMod={this.decrementMod}
           updateMult={this.updateMult}
           updateMod={this.updateMod}
           state={this.state}
@@ -60,7 +79,7 @@ class App extends Component {
     );
   }
   componentDidUpdate(prevProps, prevState, snapshot) {
-    console.log('Componenet Did Update');
+    console.log('App Did Update');
   }
 }
 

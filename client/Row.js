@@ -3,7 +3,7 @@ import { render } from 'react-dom';
 import App from './App';
 import rollN from './rollN';
 import './styles.css';
-import Count from './Count';
+// import Count from './Count';
 
 class Row extends Component {
   //anytime you pass something down, its CALLED PROPS
@@ -24,24 +24,42 @@ class Row extends Component {
         </h2>
 
         <h2 class='inner' state={this.props.state}>
-          <div class='multMod'>
-            Multiplier: (*)
-            <div>{multiplier}</div>
-            <button onClick={this.props.increment}>+</button>
+          <div class='multMod' state={this.props.state}>
+            Multiplier (*):
+            <div> {multiplier}</div>
+            <button
+              state={this.props.state}
+              onClick={() => this.props.incrementMult()}
+            >
+              +
+            </button>
+            <button
+              state={this.props.state}
+              onClick={() => this.props.decrementMult()}
+            >
+              -
+            </button>
           </div>
         </h2>
-
+        
         <h2 class='inner' state={this.props.state}>
-          <div class='multMod'>
-            Modifier: (+)
-            <Count state={this.props.state} />
+          <div class='multMod' state={this.props.state}>
+            Modifier (+):
+            <div> {modifier}</div>
+            <button
+              state={this.props.state}
+              onClick={() => this.props.incrementMod()}
+            >
+              +
+            </button>
+            <button
+              state={this.props.state}
+              onClick={() => this.props.decrementMod()}
+            >
+              -
+            </button>
           </div>
         </h2>
-
-        {/* <div state={this.state}>{this.props.state}</div>
-        <h2>Multiplier: {('multipler', rollN(1, 20))}</h2>
-        <h2>Multiplier: {('multipler', rollN(1, 20))}</h2> */}
-        {/* <img src={this.props.RowUrl} /> */}
       </div>
     );
   }
