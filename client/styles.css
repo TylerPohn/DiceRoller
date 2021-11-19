@@ -7,7 +7,7 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   border: 10px solid black;
   border-block-color: gray;
-  height: 120px;
+  height: 150px;
   width: '100%';
   flex: 1;
   justify-content: space-around;
@@ -33,6 +33,10 @@
   padding-right: 0%;
 }
 .multMod {
+  align-items: flex-start;
+}
+.center {
+  padding-left: 5px;
 }
 .spacer {
   width: 25%;
@@ -44,6 +48,13 @@
   font-weight: bolder;
   width: 20%;
   background-color: rgb(131, 240, 41);
+}
+.buttons {
+  height: 25px;
+}
+.pissMeOff {
+  font-weight: bolder;
+  align-self: center;
 }
 .roll {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
