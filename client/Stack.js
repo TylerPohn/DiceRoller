@@ -3,7 +3,6 @@ import Row from './Row';
 import Result from './Result';
 class Stack extends Component {
   render() {
-    //REFACTORING NEEDED BELOW: add a unique id property to each row e.g. row1, row2
     //these props are accessible in state (ex. this.props.state.row1)
     return (
       <div>
