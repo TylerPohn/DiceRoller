@@ -7,4 +7,3 @@ function rollN(d) {
 }
 
 export default rollN;
-//fix so doesn't always return even number
